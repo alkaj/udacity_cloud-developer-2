@@ -1,6 +1,6 @@
-import express from "express";
 import bodyParser from "body-parser";
 import { filterImageFromURL, deleteLocalFiles } from "./util/util";
+import express, { Request, Response } from "express";
 
 (async () => {
   // Init the Express application
@@ -27,13 +27,13 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util";
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
-  app.get("/filteredimage", async (req, res) => {
-    let image_url = req.query.image_url;
+  app.get("/filteredimage", async (req: Request, res: Response) => {
+    let image_url: string = req.query.image_url;
     if (!image_url) {
       res
         .status(422)
         .send(
-          'Please try adding "?image_url={{image_url}}" to the current url where "image_url" is the link to a public image'
+          'Please try adding "?image_url={{image_url}}" to the current url where "image_url" is the link to a public image.'
         );
     } else {
       filterImageFromURL(image_url)
@@ -52,23 +52,6 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util";
               "Error: The url you provided does not link to a public image file!"
             );
         });
-      // try {
-      //   // res.send("processing the image at " + image_url);
-
-      //   let filteredpath = await filterImageFromURL(image_url);
-      //   // Send back the file
-      //   res.sendFile(filteredpath);
-      //   // clean up
-      //   res.on("finish", () => {
-      //     deleteLocalFiles([filteredpath]);
-      //   });
-      // } catch (e) {
-      //   res
-      //     .status(400)
-      //     .send(
-      //       "Error: The url you provided does not link to a public image file!"
-      //     );
-      // }
     }
   });
 
@@ -76,7 +59,7 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util";
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get("/", async (req, res) => {
+  app.get("/", async (req: Request, res: Response) => {
     res.send("try GET /filteredimage?image_url={{}}");
   });
 
