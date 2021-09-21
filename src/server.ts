@@ -52,23 +52,6 @@ import { filterImageFromURL, deleteLocalFiles } from "./util/util";
               "Error: The url you provided does not link to a public image file!"
             );
         });
-      // try {
-      //   // res.send("processing the image at " + image_url);
-
-      //   let filteredpath = await filterImageFromURL(image_url);
-      //   // Send back the file
-      //   res.sendFile(filteredpath);
-      //   // clean up
-      //   res.on("finish", () => {
-      //     deleteLocalFiles([filteredpath]);
-      //   });
-      // } catch (e) {
-      //   res
-      //     .status(400)
-      //     .send(
-      //       "Error: The url you provided does not link to a public image file!"
-      //     );
-      // }
     }
   });
 
