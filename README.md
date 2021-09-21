@@ -4,7 +4,7 @@ This is a simple program that takes a public photo url and applies some filters 
 
 # Link to the elastic beanstalk application
 
-[Al Kaj Image Filter is live here](http://alkaj-image-filter.us-west-2.elasticbeanstalk.com)
+Al Kaj Image Filter is live at http://alkaj-image-filter.us-west-2.elasticbeanstalk.com
 
 # The hosting Aws Elastic Beanstalk environment screen shot
 
